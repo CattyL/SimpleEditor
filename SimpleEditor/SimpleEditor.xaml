@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" d:DesignWidth="600">
+    <Window.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="LightGray"></Setter>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontFamily" Value="Tahoma"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="10"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="File"></MenuItem>
+            <MenuItem Header="Edit"></MenuItem>
+            <MenuItem Header="Help"></MenuItem>
+        </Menu>
+
+        <ToolBarTray Grid.Row="1">
+            <ToolBar Height="30">
+                <Button>
+                    Cut
+                </Button>
+                <Button>
+                    Copy
+                </Button>
+                <Button>
+                    Paste
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <TextBox Grid.Row="2"></TextBox>
+
+        <StatusBar Grid.Row="3" Name="sbar" 
+           VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock>Online</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="100" Height="20"
+                 Name="progressBar1">
+                    <ProgressBar.Triggers>
+                        <EventTrigger RoutedEvent="ProgressBar.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                Storyboard.TargetName="progressBar1" 
+                Storyboard.TargetProperty="Value"
+                From="0" To="100" Duration="0:0:5"  />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ProgressBar.Triggers>
+                </ProgressBar>
+            </StatusBarItem>
+
+        </StatusBar>
     </Grid>
 </Window>
