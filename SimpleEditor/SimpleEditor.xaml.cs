@@ -23,6 +23,8 @@ namespace SimpleEditor
         public MainWindow()
         {
             InitializeComponent();
+
+
         }
     }
 }
