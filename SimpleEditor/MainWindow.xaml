@@ -90,7 +90,7 @@
             </ToolBar>
         </ToolBarTray>
 
-        <TextBox Grid.Row="2"></TextBox>
+        <local:FlowDocumentControl Grid.Row="2"></local:FlowDocumentControl>
 
         <StatusBar Grid.Row="3" Name="sbar">
             <Grid>
